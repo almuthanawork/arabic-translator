@@ -1,38 +1,43 @@
-# Arabic Translator
+# Arabic-to-English Literary Translator
 
-Arabic-to-English literary translation skill for Claude Code with built-in humanizer.
+A Claude Code skill for Arabic-to-English literary translation with built-in AI-pattern removal (humanizer).
 
-Combines deep Arabic rhetoric analysis (balagha), register-aware translation, and AI-pattern removal in one workflow.
+## What it does
 
-## Install
+Translates Arabic text into natural, publication-ready English using a three-phase workflow:
 
-```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/almuthanawork/arabic-translator.git ~/.claude/skills/arabic-translator
+1. **Deep Analysis** — Identifies text type, register, rhetorical devices (البلاغة), cultural references, emotional arc, root resonances, and translation traps before writing a single English word
+2. **Two-Pass Translation** — Analytical draft preserving Arabic structure, then natural adaptation for English idiom and rhythm
+3. **Polish and Humanize** — Three sweeps (translation artifacts, AI pattern removal, voice/soul) plus a two-pass anti-AI audit
+
+## Features
+
+- Handles all Arabic registers: MSA, Classical/Quranic, Egyptian, Gulf, Levantine, literary, technical
+- 14 Arabic rhetorical devices with specific English compensation strategies
+- 25+ banned AI vocabulary words and pattern detection (based on Wikipedia's "Signs of AI writing")
+- Register-aware translation that preserves shifts between formal and colloquial
+- Nida's "equivalent effect" as the guiding principle
+
+## Installation
+
+Copy the `arabic-translator/` folder (with `SKILL.md` and `references/`) into your Claude Code skills directory:
+
+```
+~/.claude/skills/arabic-translator/
+├── SKILL.md
+└── references/
+    └── rhetoric-guide.md
 ```
 
 ## Usage
 
-In Claude Code, type `/arabic-translator` followed by your Arabic text, or just ask Claude to translate Arabic text and the skill will activate automatically.
+Provide Arabic text and the skill triggers automatically. You can also use:
+- "translate this"
+- "ترجم"
+- "Arabic to English"
 
-## What it does
+Optional metadata: author/source, text type, dialect, target reader familiarity (high/moderate/low), terminology to preserve.
 
-- 6-phase translation process: deep reading, first draft, reflection, refinement, humanizer pass, final verification
-- Handles 11 Arabic rhetorical devices (balagha) with specific English compensation strategies
-- Register-aware: fusha, ammiya (all dialects), literary, Quranic, and mixed registers
-- Built-in AI-pattern removal ensures the English output reads like human-written prose
-- Passes three quality tests: monolingual beauty, bilingual accuracy, author voice recognition
+## Version
 
-## Structure
-
-```
-arabic-translator/
-├── SKILL.md                          # Main skill instructions
-└── references/
-    ├── rhetoric-guide.md             # Balagha device handling (11 devices)
-    └── humanizer-checklist.md        # AI pattern removal checklist
-```
-
-## License
-
-MIT
+v3 — Deep analysis workflow + integrated humanizer (25 AI patterns)
